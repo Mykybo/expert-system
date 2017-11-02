@@ -1,0 +1,51 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: auto;
+  width: 500px;
+  height: 250px;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.question {
+  width: 100%;
+  height: 200px;
+  font-size: 32px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 100px;
+}
+
+.answers {
+  height: 100%;
+  text-align: center;
+}
+
+.button {
+  padding: 5px 15px 5px 15px;
+  background-color: #40b8b8;
+  border: 1px solid #339393;
+  box-shadow: 1px 2px 3px #2c7f7f;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+}
+
+.button:hover {
+  background-color: #2c7f7f;
+}
+
+.no {
+  background-color: #c0040e;
+  border: 1px solid #5f0202;
+  box-shadow: 1px 2px 3px #7f2c2c;
+}
+
+.no:hover {
+  background-color: #620a0a;
+}
