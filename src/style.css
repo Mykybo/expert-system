@@ -14,11 +14,12 @@ html, body {
 
 .question {
   width: 100%;
-  height: 200px;
+  height: 180px;
   font-size: 32px;
   text-align: center;
   vertical-align: middle;
-  line-height: 100px;
+  line-height: 40px;
+  margin-top: 20px;
 }
 
 .answers {
