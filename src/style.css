@@ -50,3 +50,11 @@ html, body {
 .no:hover {
   background-color: #620a0a;
 }
+
+.answers {
+  list-style: none;
+}
+
+.reset-height {
+  height: initial;
+}

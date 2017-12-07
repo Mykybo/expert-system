@@ -30,7 +30,7 @@ Object.defineProperty(Array.prototype, "equals", {enumerable: false});
 
 
 let questions = [
-  "0. FILLER ZERO",
+  // "0. FILLER ZERO",
   "1. Is the game free-to-play?",
   "2. Is it a strategy game?",
   "3. Is it a fps game?",
@@ -55,12 +55,12 @@ let questions = [
   "22. Is it a racing game?",
   "23. Is the game in czech?",
   "24. Was the game made in the Czech Republic?",
-  "25. Does the game cost more than 50$ ?",
-  "26. Can you play the game on Linux?",
-  "27. Is it a web game?",
-  "28. Is the game on Origin?",
-  "29. Is it a platformer?",
-  "30. Is it a moba game?"
+  // "25. Does the game cost more than 50$ ?",
+  // "26. Can you play the game on Linux?",
+  // "27. Is it a web game?",
+  // "28. Is the game on Origin?",
+  // "29. Is it a platformer?",
+  // "30. Is it a moba game?"
 ]
 
 let answers = [
@@ -81,73 +81,87 @@ let answers = [
 ]
 
 let relations = [
-  [ 1, 8, 10, 15, 16, 17, 26, 27 ],
-  [ 8, 10, 16, 23, 27, 28 ],
-  [ 3, 4, 5, 8, 10, 11, 12, 13, 14, 18, 20, 21, 23, 26 ],
-  [ 2, 8, 10, 16, 18, 19, 26, 4 ],
-  [ 8, 10, 15, 16, 20, 21, 22, 23, 27, 28 ],
-  [ 8, 10, 11, 18, 20, 23, 26 ],
-  [ 8, 10, 17, 18, 20, 26 ],
-  [ 6, 7, 10, 20, 25, 26 ],
-  [ 1, 4, 10, 18, 20, 26, 29 ],
-  [ 3, 4, 10, 18, 20, 23, 26 ],
-  [ 1, 6, 10, 15, 16, 26, 27 ],
-  [ 1, 4, 5, 9, 14, 16, 27 ],
-  [ 8, 10, 11, 12, 18, 20, 21, 23, 25, 26 ],
-  [ 3, 8, 10, 11, 18, 20, 23, 24, 25, 26 ],
+  [ 0.5, 0.6, 0.5, 0.5, 0.3, 0.3, 0.3, 0.5, 0.5, 0.4, 0.9, 0.2, 0.5, 0.5, 0.3, 0.5, 0.4, 0.8, 0.7, 0.6, 0.3, 0.3, 0.9, 0.1 ],
+  [ 0.1, 0.5, 0.5, 0.5, 0.3, 0.3, 0.3, 0.5, 0.5, 0, 0.5, 0, 0.5, 0.5, 0.3, 0.5, 0.4, 0.8, 0.7, 0.6, 0.3, 0, 0.9, 0.1 ],
+  [ 0.3, 0.5, 0.5, 0.5, 0.3, 0.3, 0.3, 0.5, 0.5, 0, 0.6, 0, 0.5, 0.5, 0.3, 0.5, 0.4, 0.8, 0.7, 0.6, 0.3, 0.7, 0.9, 0.1 ],
+  [ 1, 0.5, 0.5, 0.5, 0.3, 0.3, 0.3, 0.5, 0.5, 0, 1, 0, 0.5, 0.5, 0.3, 0.5, 0.4, 0.8, 0.7, 0.6, 0.3, 0, 0.4, 0.1 ],
+  [ 0, 0.5, 0.5, 0.5, 0.3, 0.3, 0.3, 0.5, 0.5, 0.4, 0.5, 0, 0.5, 0.5, 0.3, 0.5, 0.4, 0.8, 0.7, 0.6, 0.3, 0, 0.4, 0.1 ],
+  [ 0.9, 0.5, 0.5, 0.5, 0.3, 0.3, 0.3, 0.5, 0.5, 0, 0.7, 0, 0.5, 0.5, 0.3, 0.5, 0.4, 0.8, 0.7, 0.6, 0.3, 0, 0.9, 0.1 ],
+  [ 0.4, 0.3, 0.8, 0.3, 0.3, 0.3, 0.3, 0.5, 0.5, 0, 1, 0, 0.5, 0.5, 0.3, 0.5, 0.4, 0.8, 0.7, 0.6, 0.3, 0, 0.9, 0.1 ],
+  [ 0.3, 0.5, 0.5, 0.5, 0.3, 0.3, 0.3, 0.5, 0.5, 0.8, 0.4, 0, 0.5, 0.5, 0.3, 0.5, 0.4, 0.8, 0.7, 0.6, 0.3, 0, 0.9, 0.1 ],
+  [ 0.5, 0.5, 0.5, 0.5, 0.3, 0.3, 0.3, 0.5, 0.5, 0, 1, 0.4, 0.5, 0.5, 0.3, 0.5, 0.4, 0.8, 0.7, 0.6, 0.3, 0, 0.7, 0.1 ],
+  [ 0.3, 0.5, 0.5, 0.5, 0.3, 0.3, 0.3, 0.5, 0.5, 0.2, 1, 0, 0.5, 0.5, 0.3, 0.5, 0.4, 0.8, 0.7, 0.6, 0.3, 0.8, 0.6, 0.1 ],
+  [ 0.7, 0.5, 0.5, 0.5, 0.3, 0.3, 0.3, 0.5, 0.5, 0.1, 0.3, 0.9, 0.5, 0.5, 0.3, 0.5, 0.4, 0.8, 0.7, 0.6, 0.3, 0, 0.8, 0.1 ],
+  [ 0.8, 0.5, 0.5, 0.5, 0.3, 0.3, 0.3, 0.5, 0.5, 0, 1, 0, 0.5, 0.5, 0.3, 0.5, 0.4, 0.8, 0.7, 0.6, 0.3, 0, 0.9, 0.1 ],
+  [ 0.2, 0.5, 0.5, 0.5, 0.3, 0.3, 0.3, 0.5, 0.5, 0.2, 0.7, 0.3, 0.5, 0.5, 0.3, 0.5, 0.4, 0.8, 0.7, 0.6, 0.3, 0, 0.8, 0.1 ],
+  [ 0.6, 0.5, 0.5, 0.5, 0.3, 0.3, 0.3, 0.5, 0.5, 0.5, 0.5, 0.6, 0.5, 0.5, 0.4, 0.5, 0.4, 0.5, 0.7, 0.4, 0.4, 0.6, 0.5, 0.5 ],
 ]
+
+let state = []
+
+// let relations = [
+//   [ 1, 8, 10, 15, 16, 17, 26, 27 ],
+//   [ 8, 10, 16, 23, 27, 28 ],
+//   [ 3, 4, 5, 8, 10, 11, 12, 13, 14, 18, 20, 21, 23, 26 ],
+//   [ 2, 8, 10, 16, 18, 19, 26, 4 ],
+//   [ 8, 10, 15, 16, 20, 21, 22, 23, 27, 28 ],
+//   [ 8, 10, 11, 18, 20, 23, 26 ],
+//   [ 8, 10, 17, 18, 20, 26 ],
+//   [ 6, 7, 10, 20, 25, 26 ],
+//   [ 1, 4, 10, 18, 20, 26, 29 ],
+//   [ 3, 4, 10, 18, 20, 23, 26 ],
+//   [ 1, 6, 10, 15, 16, 26, 27 ],
+//   [ 1, 4, 5, 9, 14, 16, 27 ],
+//   [ 8, 10, 11, 12, 18, 20, 21, 23, 25, 26 ],
+//   [ 3, 8, 10, 11, 18, 20, 23, 24, 25, 26 ],
+// ]
+
+// bereme min(lastStav, newStav)
+/*
+newStav := {
+  true: x,
+  false: 1 - x
+}
+v relations pro kazdou odpoved bude prislusnust 0-1 ke kazde otazce
+*/
 
 let backupRelations = relations.slice()
 
 let asked = []
 
-let getRelationsLength = () => {
-  return relations.length
-}
+let index = 0
 
 let system = {
   next() {
-    for (const index in relations) {
-      for (const q in relations[index]) {
-        let realQ = relations[index][q]
-        if (!asked.includes(realQ)) {
-          return realQ
-        }
-      }
-    }
-    return false
+    let q = questions[index++]
+    return q
   },
   ask() {
-    let questionNum = system.next()
-    // no more questionsl
-    if (questionNum === false || getRelationsLength() == 1 ) {
+    let question = system.next()
+    if (!question) {
       system.end()
       return
     }
-    console.log('question number:', questionNum)
-
     // first question
-    $('#question').text(questions[questionNum])
-    $('#question').data('question', questionNum)
-    asked.push(questionNum)
-
-    console.log(relations)
+    $('#question').text(question)
+    console.log(state)
   },
   end() {
     $('#controls').hide()
-    let result = ''
-    // get result
-    console.log('end', relations)
-
-    for (const i in backupRelations) {
-      for (const j in relations) {
-        if (backupRelations[i].equals(relations[j])) {
-          result += answers[i] + ', '
-        }
+    let results = 0
+    let ul = $('<ul class="answers"></ul>')
+    for (const i in state) {
+      if (state[i] > 0) {
+        let li = $(`<li>${answers[i]} - ${Math.round(state[i] * 100) / 100}</li>`)
+        ul.append(li)
+        results++
       }
     }
-    if (getRelationsLength() > 0) {
-      $('#question').text(`Answer(s): ${result}`)
+    if (results > 0) {
+      $('#question').text('Answer(s)')
+      $('#question').append(ul)
+      $('#question').addClass('reset-height')
+      $('.container').addClass('reset-height')
     } else {
       $('#question').text('No answer')
     }
@@ -159,18 +173,30 @@ $(document).ready(() => {
   system.ask()
   // answers
   $('#no').click(() => {
-    let question = Number($('#question').data('question'))
-    relations = relations.filter(items => {
-      return !items.includes(question)
-    })
+    let lastIndex = index - 1
+    if (state.length == 0) {
+      for (const i in relations) {
+        state[i] = 1 - relations[i][lastIndex]
+      }
+    } else {
+      for (const i in relations) {
+        state[i] = Math.min(1 - relations[i][lastIndex], state[i])
+      }
+    }
     // ask next
     system.ask()
   })
   $('#yes').click(() => {
-    let question = Number($('#question').data('question'))
-    relations = relations.filter(items => {
-      return items.includes(question)
-    })
+    let lastIndex = index - 1
+    if (state.length == 0) {
+      for (const i in relations) {
+        state[i] = relations[i][lastIndex]
+      }
+    } else {
+      for (const i in relations) {
+        state[i] = Math.min(relations[i][lastIndex], state[i])
+      }
+    }
     // ask next
     system.ask()
   })
