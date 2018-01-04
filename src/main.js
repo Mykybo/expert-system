@@ -1,36 +1,4 @@
-// Warn if overriding existing method
-if (Array.prototype.equals)
-  console.warn("Overriding existing Array.prototype.equals. Possible causes: New API defines the method, there's a framework conflict or you've got double inclusions in your code.");
-
-// attach the .equals method to Array's prototype to call it on any array
-Array.prototype.equals = function (array) {
-  // if the other array is a falsy value, return
-  if (!array)
-   return false;
-
-  // compare lengths - can save a lot of time
-  if (this.length != array.length)
-   return false;
-
-  for (var i = 0, l=this.length; i < l; i++) {
-    // Check if we have nested arrays
-    if (this[i] instanceof Array && array[i] instanceof Array) {
-      // recurse into the nested arrays
-      if (!this[i].equals(array[i]))
-        return false;
-    } else if (this[i] != array[i]) {
-      // Warning - two different object instances will never be equal: {x:20} != {x:20}
-      return false;
-    }
-  }
-  return true;
-}
-// Hide method from for-in loops
-Object.defineProperty(Array.prototype, "equals", {enumerable: false});
-
-
 let questions = [
-  // "0. FILLER ZERO",
   "1. Is the game free-to-play?",
   "2. Is it a strategy game?",
   "3. Is it a fps game?",
@@ -54,13 +22,7 @@ let questions = [
   "21. Is it a sports game?",
   "22. Is it a racing game?",
   "23. Is the game in czech?",
-  "24. Was the game made in the Czech Republic?",
-  // "25. Does the game cost more than 50$ ?",
-  // "26. Can you play the game on Linux?",
-  // "27. Is it a web game?",
-  // "28. Is the game on Origin?",
-  // "29. Is it a platformer?",
-  // "30. Is it a moba game?"
+  "24. Was the game made in the Czech Republic?"
 ]
 
 let answers = [
@@ -98,36 +60,6 @@ let relations = [
 ]
 
 let state = []
-
-// let relations = [
-//   [ 1, 8, 10, 15, 16, 17, 26, 27 ],
-//   [ 8, 10, 16, 23, 27, 28 ],
-//   [ 3, 4, 5, 8, 10, 11, 12, 13, 14, 18, 20, 21, 23, 26 ],
-//   [ 2, 8, 10, 16, 18, 19, 26, 4 ],
-//   [ 8, 10, 15, 16, 20, 21, 22, 23, 27, 28 ],
-//   [ 8, 10, 11, 18, 20, 23, 26 ],
-//   [ 8, 10, 17, 18, 20, 26 ],
-//   [ 6, 7, 10, 20, 25, 26 ],
-//   [ 1, 4, 10, 18, 20, 26, 29 ],
-//   [ 3, 4, 10, 18, 20, 23, 26 ],
-//   [ 1, 6, 10, 15, 16, 26, 27 ],
-//   [ 1, 4, 5, 9, 14, 16, 27 ],
-//   [ 8, 10, 11, 12, 18, 20, 21, 23, 25, 26 ],
-//   [ 3, 8, 10, 11, 18, 20, 23, 24, 25, 26 ],
-// ]
-
-// bereme min(lastStav, newStav)
-/*
-newStav := {
-  true: x,
-  false: 1 - x
-}
-v relations pro kazdou odpoved bude prislusnust 0-1 ke kazde otazce
-*/
-
-let backupRelations = relations.slice()
-
-let asked = []
 
 let index = 0
 
@@ -197,6 +129,10 @@ $(document).ready(() => {
         state[i] = Math.min(relations[i][lastIndex], state[i])
       }
     }
+    // ask next
+    system.ask()
+  })
+  $('#idk').click(() => {
     // ask next
     system.ask()
   })

@@ -51,6 +51,16 @@ html, body {
   background-color: #620a0a;
 }
 
+.idk {
+  background-color: #cfc201;
+  border: 1px solid #6b6000;
+  box-shadow: 1px 2px 3px #868024;
+}
+
+.idk:hover {
+  background-color: #726b0e;
+}
+
 .answers {
   list-style: none;
 }
