@@ -78,10 +78,17 @@ let system = {
     $('#question').text(question)
     console.log(state)
   },
+  reset() {
+    console.log('reset called')
+
+    index = 0
+    state = []
+    system.ask()
+  },
   end() {
     $('#controls').hide()
     let results = 0
-    let ul = $('<ul class="answers"></ul>')
+    let ul = $('<ul class="answers" id="answers"></ul>')
     for (const i in state) {
       if (state[i] > 0) {
         let li = $(`<li>${answers[i]} - ${Math.round(state[i] * 100) / 100}</li>`)
@@ -97,6 +104,17 @@ let system = {
     } else {
       $('#question').text('No answer')
     }
+    let reset = $('<a href="#" class="button reset" id="reset">Reset</a>')
+    $('#question').append(reset)
+    // reset event
+    reset.click(() => {
+      $('#question').removeClass('reset-height')
+      $('.container').removeClass('reset-height')
+      $('#controls').show()
+      $('#answers').remove()
+      // ask next
+      system.reset()
+    })
   }
 }
 
