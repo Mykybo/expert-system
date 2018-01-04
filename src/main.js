@@ -61,6 +61,8 @@ let relations = [
 
 let state = []
 
+let history = []
+
 let index = 0
 
 let system = {
@@ -79,8 +81,6 @@ let system = {
     console.log(state)
   },
   reset() {
-    console.log('reset called')
-
     index = 0
     state = []
     system.ask()
@@ -97,13 +97,24 @@ let system = {
       }
     }
     if (results > 0) {
-      $('#question').text('Answer(s)')
+      $('#question').text('')
+      $('#question').append($('<h2>Answer(s)</h2>'))
+
       $('#question').append(ul)
       $('#question').addClass('reset-height')
       $('.container').addClass('reset-height')
     } else {
       $('#question').text('No answer')
     }
+    // print history
+    let historyUl = $('<ul class="answers history" id="history"></ul>')
+    for (const i in history) {
+      historyUl.append($(`<li>${i} - ${history[i]}</li>`))
+    }
+    $('#question').append($('<h2>History</h2>'))
+    $('#question').append(historyUl)
+    console.log(history)
+
     let reset = $('<a href="#" class="button reset" id="reset">Reset</a>')
     $('#question').append(reset)
     // reset event
@@ -124,6 +135,7 @@ $(document).ready(() => {
   // answers
   $('#no').click(() => {
     let lastIndex = index - 1
+    history[lastIndex] = false
     if (state.length == 0) {
       for (const i in relations) {
         state[i] = 1 - relations[i][lastIndex]
@@ -138,6 +150,7 @@ $(document).ready(() => {
   })
   $('#yes').click(() => {
     let lastIndex = index - 1
+    history[lastIndex] = true
     if (state.length == 0) {
       for (const i in relations) {
         state[i] = relations[i][lastIndex]
